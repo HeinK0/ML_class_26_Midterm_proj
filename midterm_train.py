@@ -1,5 +1,5 @@
 # Reset the envionment
-%reset -f
+#%reset -f
 
 # Import Dataset
 import kagglehub
