@@ -9,7 +9,7 @@ st.write(
 )
 
 
-df = pd.read_csv("midterm_project/market_data.csv")
+df = pd.read_csv("market_data.csv")
 
 def load_model():
     with open("payment.pkl", "rb") as model_file:
