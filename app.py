@@ -8,15 +8,8 @@ st.write(
     "before they choose how to pay."
 )
 
-import kagglehub
-import os
 
-dataset_path = kagglehub.dataset_download(
-    "faresashraf1001/supermarket-sales")
-  
-df = pd.read_csv(
-    os.path.join(dataset_path, "SuperMarket Analysis.csv"))
-
+df = pd.read_csv("midterm_project/market_data.csv")
 
 def load_model():
     with open("payment.pkl", "rb") as model_file:

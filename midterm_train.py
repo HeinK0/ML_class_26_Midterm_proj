@@ -2,15 +2,18 @@
 #%reset -f
 
 # Import Dataset
-import kagglehub
-import pandas as pd
-import os
+# import kagglehub
 
-dataset_path = kagglehub.dataset_download(
-    "faresashraf1001/supermarket-sales")
+# import os
+
+# dataset_path = kagglehub.dataset_download(
+#     "faresashraf1001/supermarket-sales")
   
-df = pd.read_csv(
-    os.path.join(dataset_path, "SuperMarket Analysis.csv"))
+# df = pd.read_csv(
+#     os.path.join(dataset_path, "SuperMarket Analysis.csv"))
+
+import pandas as pd
+df = pd.read_csv("midterm_project/market_data.csv")
 
 # No Missing Values
 print(df.isnull().sum())
