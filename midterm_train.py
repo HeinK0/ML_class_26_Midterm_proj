@@ -1,17 +1,7 @@
 # Reset the envionment
 #%reset -f
 
-# Import Dataset
-# import kagglehub
-
-# import os
-
-# dataset_path = kagglehub.dataset_download(
-#     "faresashraf1001/supermarket-sales")
-  
-# df = pd.read_csv(
-#     os.path.join(dataset_path, "SuperMarket Analysis.csv"))
-
+#import dataset
 import pandas as pd
 df = pd.read_csv("market_data.csv")
 
