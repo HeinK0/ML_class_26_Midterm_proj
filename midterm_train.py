@@ -13,7 +13,7 @@
 #     os.path.join(dataset_path, "SuperMarket Analysis.csv"))
 
 import pandas as pd
-df = pd.read_csv("midterm_project/market_data.csv")
+df = pd.read_csv("market_data.csv")
 
 # No Missing Values
 print(df.isnull().sum())
@@ -67,5 +67,5 @@ baseline_predictions = [majority_payment] * len(y_test)
 
 ## Create and Export pickle file
 import pickle
-with open("midterm_project/payment.pkl", "wb") as model_file:
+with open("payment.pkl", "wb") as model_file:
     pickle.dump(model, model_file)
