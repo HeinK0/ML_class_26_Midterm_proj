@@ -1,5 +1,5 @@
 # Reset the envionment
-#%reset -f
+%reset -f
 
 #import dataset
 import pandas as pd
@@ -41,21 +41,29 @@ preprocessing = ColumnTransformer([
      category_columns),
 ])
 
-model = Pipeline([
+multi_classification_model = Pipeline([
     ("preprocessing", preprocessing),
     ("classifier", LogisticRegression()),
 ])
 
 # Model train
-model.fit(X_train, y_train)
-predictions = model.predict(X_test)
+multi_classification_model.fit(X_train, y_train)
+predictions = multi_classification_model.predict(X_test)
 
-## Check Majority Payment
-majority_payment = y_train.value_counts().index[0]
+# Check Accuracy
+from sklearn.metrics import accuracy_score, precision_score
 
-baseline_predictions = [majority_payment] * len(y_test)
+accuracy = accuracy_score(y_test, predictions)
+precision = precision_score(y_test, predictions, average="macro")
 
 ## Create and Export pickle file
 import pickle
+evaluation = {
+    "test_rows": len(y_test),
+    "accuracy": accuracy,
+    "macro_precision": precision,
+}
+
 with open("payment.pkl", "wb") as model_file:
-    pickle.dump(model, model_file)
+    pickle.dump(multi_classification_model, model_file)
+    pickle.dump(evaluation, model_file)
